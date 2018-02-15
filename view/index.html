@@ -17,7 +17,7 @@
 <!-- define angular controller -->
 
 <body ng-controller="mainController">
-    <div class="container">
+    <div class="container" ng-hide="displayMe">
 
         <div class="row">
             <div class="col-md-6 text-right">
@@ -27,6 +27,7 @@
                     <option value="author">Author</option>
                     <option value="date">Date</option>
                     <option value="title">Title</option>
+                    <option value="tags_title">Tags Title</option>
                 </select>
             </div>
             <div class="col-md-6 text-left">
@@ -37,24 +38,82 @@
 
         <button type="button" class="btn btn-primary" ng-click="search(searchTxt,field)">Search</button>
 
-        <table class="table">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th scope="col">no</th>
                     <th scope="col">author</th>
                     <th scope="col">date</th>
                     <th scope="col">title</th>
+                    <th scope="col">tags_title</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in searchData">
+                <tr ng-repeat="item in searchData" ng-click="viewNews(item)">
                     <th scope="row">{{item.no}}</th>
                     <td>{{item.author}}</td>
                     <td>{{item.date | date:'dd/MM/yyyy'}}</td>
                     <td>{{item.title}}</td>
+                    <td>{{item.tags_title.toString()}}</td>
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <div class="container" ng-show="displayMe">
+        <div class="row text-right">
+            <button type="button" class="btn btn-primary " ng-click="closeMe()">X</button>
+        </div>
+
+        <div class="row card">
+            <div class="col-md-6">
+                <h5 class="card-title">Number</h5>
+            </div>
+            <div class="col-md-6">
+                {{viewSelected.no}}
+            </div>
+        </div>
+        <div class="row card">
+            <div class="col-md-6">
+                <h5 class="card-title">Author</h5>
+            </div>
+            <div class="col-md-6">
+                {{viewSelected.author}}
+            </div>
+        </div>
+        <div class="row card">
+            <div class="col-md-6">
+                <h5 class="card-title">Date</h5>
+            </div>
+            <div class="col-md-6">
+                {{viewSelected.date}}
+            </div>
+        </div>
+        <div class="row card">
+            <div class="col-md-6">
+                <h5 class="card-title">Title</h5>
+            </div>
+            <div class="col-md-6">
+                {{viewSelected.title}}
+            </div>
+        </div>
+        <div class="row card">
+            <div class="col-md-6">
+                <h5 class="card-title">Tags Title</h5>
+            </div>
+            <div class="col-md-6">
+                {{viewSelected.tags_title.toString()}}
+            </div>
+        </div>
+        <div class="row card">
+            <div class="col-md-6">
+                <h5 class="card-title">Tags Article</h5>
+            </div>
+            <div class="col-md-6">
+                {{viewSelected.tags_article.toString()}}
+            </div>
+        </div>
+    </div>
     </div>
 </body>
 

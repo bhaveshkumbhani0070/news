@@ -23,4 +23,13 @@
 	            });
 	    }
 
+	    $scope.viewNews = function(data) {
+	        console.log('data', data);
+	        $scope.viewSelected = data;
+	        $scope.displayMe = true;
+	    }
+
+	    $scope.closeMe = function() {
+	        $scope.displayMe = false;
+	    }
 	});
