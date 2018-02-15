@@ -27,9 +27,9 @@ exports.agency = function(req, res) {
                 case "title":
                     var query = { title: value }
                     break;
-                case "tags_title":
-                    var query = { tags_title: value }
-                    break;
+                    // case "tags_title":
+                    //     var query = { tags_title: value }
+                    //     break;
                 default:
                     break;
             }
