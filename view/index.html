@@ -66,10 +66,8 @@
         <ul>
             <li ng-repeat="todo in filteredTodos">{{todo.text}}</li>
         </ul> -->
-                <table class="table table-hover" style="width:100%; text-align:center">
-                <pagination ng-model="currentPage" total-items="searchData.length" max-size="maxSize" boundary-links="true">
+        <pagination ng-model="currentPage" total-items="searchData.length" max-size="maxSize" boundary-links="true">
         </pagination>
-        </table>
         
 
         <!-- <pagination ng-model="currentPage" total-items="searchData.length" max-size="maxSize" boundary-links="true">
