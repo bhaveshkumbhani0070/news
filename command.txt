@@ -1,0 +1,1 @@
+export MONGODB_URI=mongodb://rodonguser:rodonguser@db.laonresources.com/rodong?authSource=admin

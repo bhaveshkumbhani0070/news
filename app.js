@@ -28,6 +28,7 @@ app.use(function(req, res, next) {
 
 app.use("/js", express.static(__dirname + '/view/js'));
 app.use("/boot", express.static(__dirname + '/view/bootstrap'));
+app.use('/npm', express.static(__dirname + '/node_modules'));
 
 app.get('/', function(req, res) {
     res.sendFile('index.html', { 'root': "view" });
