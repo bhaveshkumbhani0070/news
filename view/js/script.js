@@ -14,7 +14,7 @@
 	// create the controller and inject Angular's $scope
 	scotchApp.controller('mainController', function($scope, $http) {
 
-	    $scope.filteredTodos = [], $scope.currentPage = 1, $scope.numPerPage = 20, $scope.maxSize = 10;
+	    $scope.filteredTodos = [], $scope.currentPage = 1, $scope.numPerPage = 10, $scope.maxSize = 5;
 	    $scope.searchData = [];
 
 	    // $scope.makeTodos = function() {
