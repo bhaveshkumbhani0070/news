@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html ng-app="scotchApp">
+
+<head>
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="boot/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+    <!-- SPELLS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<!-- define angular controller -->
+
+<body ng-controller="mainController">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6 text-right">
+                <select class="custom-select" ng-model="field">
+                    <option ng-selected="true">Select field for search</option>
+                    <option value="no">Number</option>
+                    <option value="author">Author</option>
+                    <option value="date">Date</option>
+                    <option value="title">Title</option>
+                </select>
+            </div>
+            <div class="col-md-6 text-left">
+                <input class="form-control" placeholder="Search" name="srch-term" ng-model="searchTxt" id="srch-term" type="text">
+            </div>
+        </div>
+
+
+        <button type="button" class="btn btn-primary" ng-click="search(searchTxt,field)">Search</button>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">no</th>
+                    <th scope="col">author</th>
+                    <th scope="col">date</th>
+                    <th scope="col">title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in searchData">
+                    <th scope="row">{{item.no}}</th>
+                    <td>{{item.author}}</td>
+                    <td>{{item.date | date:'dd/MM/yyyy'}}</td>
+                    <td>{{item.title}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
