@@ -6,6 +6,7 @@
 <head>
     <title>조선중앙통신 미러</title>
     <link rel="stylesheet" href="boot/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/view/css/style.css" />
     <script src="npm/angular/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
     <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
@@ -21,7 +22,12 @@
 <!-- define angular controller -->
 
 <body ng-controller="mainController">
-    <div ng-view></div>
+    <div id="mySpinner" ng-show="loading">
+        <img src="/view/img/loader.gif" />
+    </div>
+    <div ng-view>
+    </div>
+    <!-- ng-show="loading" -->
 </body>
 
 </html>
