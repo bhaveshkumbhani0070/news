@@ -29,12 +29,14 @@ app.use(function(req, res, next) {
 app.use("/js", express.static(__dirname + '/view/js'));
 app.use("/boot", express.static(__dirname + '/view/bootstrap'));
 app.use('/npm', express.static(__dirname + '/node_modules'));
+app.use('/view', express.static(__dirname + '/view'));
 
 app.get('/', function(req, res) {
     res.sendFile('index.html', { 'root': "view" });
 });
 // app.post('/api/add/addcalllog', customer.addcalllog); //insert new record //
 app.get('/api/news', api.agency);
+app.get('/api/latestNews', api.latestNews);
 
 // create server port //
 app.listen(app.get('port'));

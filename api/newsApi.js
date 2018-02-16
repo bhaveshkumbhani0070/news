@@ -52,3 +52,24 @@ exports.agency = function(req, res) {
         }
     });
 }
+exports.latestNews = function(req, res) {
+    pool.connect(function(db) {
+        if (db) {
+            console.log('connected');
+            news = db.collection('news');
+            news.find().sort({ "date": -1 }).limit(20).toArray(
+                function(err, data) {
+                    if (!err) {
+                        console.log('total', data.length);
+                        res.send({ code: 200, status: 'success', message: 'data get', 'data': data });
+                        return;
+                    } else {
+                        console.log('Errr', err);
+                        return;
+                    }
+                });
+        } else {
+            console.log('Error', err);
+        }
+    });
+}
