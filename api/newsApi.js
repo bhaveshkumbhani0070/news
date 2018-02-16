@@ -36,7 +36,7 @@ exports.agency = function(req, res) {
 
             // console.log('query', query);
 
-            news.find(query).limit(10).toArray(
+            news.find(query).toArray(
                 function(err, data) {
                     if (!err) {
                         console.log('total', data.length);
