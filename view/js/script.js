@@ -10,6 +10,9 @@
 	        .when('/contents/:no/:date', {
 	            templateUrl: 'view/content.html'
 	        })
+	        .when('/about', {
+	            templateUrl: 'view/about.html'
+	        })
 	        .otherwise({
 	            redirectTo: '/'
 	        });
