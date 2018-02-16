@@ -22,7 +22,7 @@ exports.agency = function(req, res) {
                     var query = { author: { $regex: '.*' + value + '.*', $options: 'i' } };
                     break;
                 case "date":
-                    var query = { date: new Date({ $regex: '.*' + value + '.*', $options: 'i' }) }
+                    var query = { date: new Date(value) }
                     break;
                 case "title":
                     var query = { title: { $regex: '.*' + value + '.*', $options: 'i' } }

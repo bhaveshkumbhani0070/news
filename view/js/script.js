@@ -63,5 +63,13 @@
 	        $scope.viewSelected = data;
 	    }
 
-
+	    $scope.viewDate = false;
+	    $scope.displaySearch = function(field) {
+	        console.log('field', field);
+	        if (field == "date") {
+	            $scope.viewDate = true;
+	        } else {
+	            $scope.viewDate = false;
+	        }
+	    }
 	});

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 ">
-            <select class="custom-select" ng-model="field">
+            <select class="custom-select" ng-model="field" ng-change="displaySearch(field)">
                     <option ng-selected="true">Select field for search</option>
                     <option value="no">Number</option>
                     <option value="author">Author</option>
@@ -11,8 +11,10 @@
                 </select>
         </div>
         <div class="col-md-4 ">
-            <input class="form-control" placeholder="Search" name="srch-term" ng-model="searchTxt" id="srch-term" type="text">
+            <input ng-hide="viewDate" class="form-control" placeholder="Search" name="srch-term" ng-model="searchTxt" id="srch-term" type="text">
+            <input ng-show="viewDate" class="form-control" placeholder="Search" name="srch-term" ng-model="searchTxt" id="srch-term" type="date">
         </div>
+
         <div class="col-md-4 ">
             <button type="button" class="btn btn-primary" ng-click="search(searchTxt,field)">Search</button>
         </div>
