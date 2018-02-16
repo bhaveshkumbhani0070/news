@@ -7,7 +7,7 @@
 	        .when('/', {
 	            templateUrl: 'view/home.html'
 	        })
-	        .when('/contents/:no/:date', {
+	        .when('/contents', {
 	            templateUrl: 'view/content.html'
 	        })
 	        .when('/about', {
@@ -17,6 +17,7 @@
 	            redirectTo: '/'
 	        });
 	});
+	// /:no/:date
 
 	// create the controller and inject Angular's $scope
 

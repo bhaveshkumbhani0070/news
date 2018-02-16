@@ -34,8 +34,9 @@
                 <th scope="row">{{item.no}}</th>
                 <td>{{item.author}}</td>
                 <td>{{item.date | date:'dd/MM/yyyy'}}</td>
-                <td><a ng-href="#/contents/{{item.no}}/{{item.date | date:'yyyyMMdd'}}" ng-click="viewNews(item)">{{item.title}}</a> </td>
+                <td><a ng-href="#/contents" ng-click="viewNews(item)">{{item.title}}</a> </td>
                 <!-- <td>{{item.tags_title.toString()}}</td> -->
+                <!-- /{{item.no}}/{{item.date | date:'yyyyMMdd'}} -->
             </tr>
         </tbody>
     </table>
