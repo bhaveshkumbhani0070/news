@@ -18,7 +18,7 @@
 	// create the controller and inject Angular's $scope
 
 
-	scotchApp.controller('mainController', function($scope, $http) {
+	scotchApp.controller('mainController', function($scope, $http, $sce) {
 
 	    $scope.filteredTodos = [], $scope.currentPage = 1, $scope.numPerPage = 10, $scope.maxSize = 5;
 	    $scope.searchData = [];
@@ -60,7 +60,7 @@
 
 	    $scope.viewNews = function(data) {
 	        console.log('data', data);
-	        $scope.viewSelected = data;
+	        $scope.viewSelected = $sce.trustAsHtml(data.contents);
 	    }
 
 	    $scope.viewDate = false;
@@ -72,4 +72,5 @@
 	            $scope.viewDate = false;
 	        }
 	    }
+
 	});
