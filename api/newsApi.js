@@ -16,16 +16,16 @@ exports.agency = function(req, res) {
 
             switch (field) {
                 case "no":
-                    var query = { no: value };
+                    var query = { "no": { $regex: '.*' + value + '.*', $options: 'i' } };
                     break;
                 case "author":
-                    var query = { author: value };
+                    var query = { author: { $regex: '.*' + value + '.*', $options: 'i' } };
                     break;
                 case "date":
-                    var query = { date: new Date(value) }
+                    var query = { date: new Date({ $regex: '.*' + value + '.*', $options: 'i' }) }
                     break;
                 case "title":
-                    var query = { title: value }
+                    var query = { title: { $regex: '.*' + value + '.*', $options: 'i' } }
                     break;
                     // case "tags_title":
                     //     var query = { tags_title: value }
@@ -36,7 +36,7 @@ exports.agency = function(req, res) {
 
             // console.log('query', query);
 
-            news.find(query).toArray(
+            news.find(query).limit(10).toArray(
                 function(err, data) {
                     if (!err) {
                         console.log('total', data.length);
